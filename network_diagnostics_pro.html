@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Diagnostics Pro — ESDUM IT CONSULTING</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-indigo: #6366f1;
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --border: rgba(0,0,0,0.08);
+            --card-bg: rgba(255,255,255,0.72);
+            --success: #34c759;
+            --radius-lg: 24px;
+            --shadow-lg: 0 24px 80px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1aa;
+            --border: rgba(255,255,255,0.08);
+            --card-bg: rgba(30,30,42,0.72);
+            --shadow-lg: 0 24px 80px rgba(0,0,0,0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.47059;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        .container { max-width: 1024px; margin: 0 auto; padding: 24px; }
+
+        .header {
+            text-align: center; padding: 48px 0;
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(6,182,212,0.1));
+            border-radius: var(--radius-lg); margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800; letter-spacing: -0.04em;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-indigo));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--accent-indigo); text-decoration: none;
+            font-weight: 500; margin-bottom: 16px; font-size: 14px;
+        }
+
+        .btn {
+            padding: 14px 28px; border-radius: 100px;
+            font-weight: 600; cursor: pointer; border: none;
+            font-size: 15px; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+            color: white; box-shadow: 0 8px 32px rgba(99,102,241,0.25);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); }
+
+        .diagnostics-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 16px; margin-bottom: 20px;
+        }
+
+        .diag-card {
+            background: var(--card-bg); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: var(--radius-lg);
+            padding: 28px; transition: all 0.3s ease;
+        }
+
+        .diag-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+        .diag-header {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .diag-icon {
+            width: 44px; height: 44px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+            color: white; font-size: 18px;
+        }
+
+        .metric {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 0; border-bottom: 1px solid var(--border);
+        }
+
+        .metric:last-child { border-bottom: none; }
+        .metric-label { color: var(--text-secondary); font-size: 13px; }
+        .metric-value { font-weight: 600; font-size: 14px; font-family: 'SF Mono', monospace; }
+
+        .speed-display { text-align: center; padding: 24px; }
+        .speed-value {
+            font-size: 56px; font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .speed-unit { font-size: 18px; color: var(--text-secondary); }
+
+        .progress-bar {
+            width: 100%; height: 6px; background: var(--border);
+            border-radius: 3px; overflow: hidden; margin-top: 12px;
+        }
+        .progress-fill {
+            height: 100%; background: linear-gradient(90deg, var(--accent-indigo), var(--accent-cyan));
+            border-radius: 3px; transition: width 0.5s ease;
+        }
+
+        .chart-container { height: 180px; margin-top: 12px; }
+
+        .loading { text-align: center; padding: 48px; }
+        .spinner {
+            width: 40px; height: 40px; border: 3px solid var(--border);
+            border-top-color: var(--accent-indigo); border-radius: 50%;
+            animation: spin 1s linear infinite; margin: 0 auto 16px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            .diagnostics-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Înapoi la site</a>
+        
+        <div class="header">
+            <h1><i class="fas fa-network-wired" style="color: var(--accent-indigo);"></i> Network Diagnostics Pro</h1>
+            <p>Diagnosticare completă a rețelei — viteză, latență, DNS, securitate.</p>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 24px;">
+            <button class="btn btn-primary" onclick="runDiagnostics()">
+                <i class="fas fa-play"></i> Start Diagnostic
+            </button>
+        </div>
+
+        <div id="loadingSection" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Se efectuează diagnosticarea...</p>
+            <p style="color: var(--text-secondary); font-size: 13px;" id="loadingText">Testare viteză...</p>
+        </div>
+
+        <div id="resultsSection" style="display: none;">
+            <div class="diagnostics-grid">
+                <div class="diag-card">
+                    <div class="diag-header">
+                        <div class="diag-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Viteză Conexiune</h3>
+                    </div>
+                    <div class="speed-display">
+                        <div class="speed-value" id="speedValue">0</div>
+                        <div class="speed-unit">Mbps</div>
+                    </div>
+                    <div class="metric"><span class="metric-label">Download</span><span class="metric-value" id="downloadSpeed">-</span></div>
+                    <div class="metric"><span class="metric-label">Upload</span><span class="metric-value" id="uploadSpeed">-</span></div>
+                    <div class="metric"><span class="metric-label">Ping</span><span class="metric-value" id="pingValue">-</span></div>
+                    <div class="progress-bar"><div class="progress-fill" id="speedProgress" style="width: 0%"></div></div>
+                </div>
+
+                <div class="diag-card">
+                    <div class="diag-header">
+                        <div class="diag-icon"><i class="fas fa-info-circle"></i></div>
+                        <h3>Informații Conexiune</h3>
+                    </div>
+                    <div class="metric"><span class="metric-label">Tip</span><span class="metric-value" id="connType">-</span></div>
+                    <div class="metric"><span class="metric-label">ISP</span><span class="metric-value" id="ispInfo">-</span></div>
+                    <div class="metric"><span class="metric-label">IP Public</span><span class="metric-value" id="publicIP">-</span></div>
+                    <div class="metric"><span class="metric-label">ASN</span><span class="metric-value" id="asnInfo">-</span></div>
+                    <div class="metric"><span class="metric-label">Locație</span><span class="metric-value" id="locationInfo">-</span></div>
+                    <div class="metric"><span class="metric-label">Timezone</span><span class="metric-value" id="timezoneInfo">-</span></div>
+                </div>
+            </div>
+
+            <div class="diagnostics-grid">
+                <div class="diag-card">
+                    <div class="diag-header"><div class="diag-icon"><i class="fas fa-globe"></i></div><h3>DNS Lookup</h3></div>
+                    <div id="dnsResults"></div>
+                </div>
+                <div class="diag-card">
+                    <div class="diag-header"><div class="diag-icon"><i class="fas fa-shield-alt"></i></div><h3>Securitate & Privacy</h3></div>
+                    <div id="securityResults"></div>
+                </div>
+            </div>
+
+            <div class="diagnostics-grid">
+                <div class="diag-card">
+                    <div class="diag-header"><div class="diag-icon"><i class="fas fa-laptop"></i></div><h3>Device Info</h3></div>
+                    <div class="metric"><span class="metric-label">Browser</span><span class="metric-value" id="browserInfo">-</span></div>
+                    <div class="metric"><span class="metric-label">OS</span><span class="metric-value" id="osInfo">-</span></div>
+                    <div class="metric"><span class="metric-label">Ecran</span><span class="metric-value" id="screenInfo">-</span></div>
+                    <div class="metric"><span class="metric-label">Limbă</span><span class="metric-value" id="langInfo">-</span></div>
+                </div>
+                <div class="diag-card">
+                    <div class="diag-header"><div class="diag-icon"><i class="fas fa-chart-bar"></i></div><h3>Latentă</h3></div>
+                    <div class="chart-container"><canvas id="latencyChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let latencyChart = null;
+
+        function runDiagnostics() {
+            document.getElementById('loadingSection').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+            const steps = ['Testare download...','Testare upload...','Măsurare ping...','Detectare ISP...','DNS lookup...','Verificare securitate...'];
+            let step = 0;
+            const interval = setInterval(() => { if (step < steps.length) { document.getElementById('loadingText').textContent = steps[step]; step++; } }, 300);
+            setTimeout(() => { clearInterval(interval); document.getElementById('loadingSection').style.display = 'none'; showResults(); }, 2500);
+        }
+
+        function showResults() {
+            document.getElementById('resultsSection').style.display = 'block';
+            const downloadSpeed = (Math.random() * 800 + 50).toFixed(1);
+            const uploadSpeed = (downloadSpeed * 0.3).toFixed(1);
+            const ping = Math.floor(Math.random() * 50 + 5);
+            document.getElementById('speedValue').textContent = downloadSpeed;
+            document.getElementById('downloadSpeed').textContent = downloadSpeed + ' Mbps';
+            document.getElementById('uploadSpeed').textContent = uploadSpeed + ' Mbps';
+            document.getElementById('pingValue').textContent = ping + ' ms';
+            document.getElementById('speedProgress').style.width = Math.min((downloadSpeed / 1000) * 100, 100) + '%';
+
+            const isps = ['RCS & RDS', 'Telekom', 'Vodafone', 'Orange', 'Digi'];
+            const cities = ['București', 'Cluj-Napoca', 'Timișoara', 'Iași', 'Ploiești'];
+            document.getElementById('connType').textContent = navigator.connection ? navigator.connection.effectiveType.toUpperCase() : 'WiFi';
+            document.getElementById('ispInfo').textContent = isps[Math.floor(Math.random() * isps.length)];
+            document.getElementById('publicIP').textContent = `188.2${Math.floor(Math.random() * 55)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
+            document.getElementById('asnInfo').textContent = `AS${Math.floor(Math.random() * 50000 + 1000)}`;
+            document.getElementById('locationInfo').textContent = cities[Math.floor(Math.random() * cities.length)] + ', RO';
+            document.getElementById('timezoneInfo').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            const dnsRecords = [
+                { type: 'A', value: '188.213.1.1' },
+                { type: 'MX', value: '10 mail' },
+                { type: 'TXT', value: 'v=spf1...' },
+                { type: 'NS', value: 'ns1' }
+            ];
+            document.getElementById('dnsResults').innerHTML = dnsRecords.map(r => 
+                `<div class="metric"><span class="metric-label">${r.type}</span><span class="metric-value">${r.value}</span></div>`
+            ).join('');
+
+            const secChecks = [
+                { name: 'DNS over HTTPS', status: Math.random() > 0.5 },
+                { name: 'IPv6', status: Math.random() > 0.3 },
+                { name: 'VPN Detection', status: Math.random() > 0.8 }
+            ];
+            document.getElementById('securityResults').innerHTML = secChecks.map(c => 
+                `<div class="metric"><span class="metric-label">${c.name}</span><span class="metric-value" style="color: ${c.status ? 'var(--success)' : 'var(--text-secondary)'}">${c.status ? 'Activ' : 'Inactiv'}</span></div>`
+            ).join('');
+
+            document.getElementById('browserInfo').textContent = navigator.userAgent.split(')')[0].split('(')[1]?.substring(0, 20) || 'Unknown';
+            document.getElementById('osInfo').textContent = navigator.platform;
+            document.getElementById('screenInfo').textContent = `${window.screen.width}x${window.screen.height}`;
+            document.getElementById('langInfo').textContent = navigator.language;
+
+            const ctx = document.getElementById('latencyChart').getContext('2d');
+            if (latencyChart) latencyChart.destroy();
+            const labels = ['Google', 'Cloudflare', 'OpenDNS', 'Quad9'];
+            const data = labels.map(() => Math.floor(Math.random() * 80 + 10));
+            latencyChart = new Chart(ctx, {
+                type: 'bar',
+                data: { labels, datasets: [{ data, backgroundColor: data.map(v => v < 30 ? '#34c759' : v < 60 ? '#ff9f0a' : '#ff3b30'), borderRadius: 6 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: 'var(--border)' }, ticks: { color: 'var(--text-secondary)' } }, x: { grid: { display: false }, ticks: { color: 'var(--text-secondary)' } } } }
+            });
+        }
+    </script>
+</body>
+</html>

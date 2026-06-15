@@ -1,0 +1,274 @@
+# TIKTOK VIDEO SCRIPTS - ESDUM IT CONSULTING
+# Format: 9:16 vertical (1080x1920)
+# Style: Dark tech theme, professional, Romanian language
+
+================================================================================
+VIDEO 1: "5 SEMNE că firma ta are nevoie de un IT-ist"
+================================================================================
+
+HOOK (0-3 sec):
+[Text pe ecran: "5 SEMNE că firma ta are nevoie de IT"]
+[Sunet: Alertă/Notification sound]
+[Vizual: Fundal dark, iconiță de warning pulsând]
+
+FRAME 1 (3-8 sec):
+"Calculatorul tău începe mai greu decât bunica de dimineață?"
+[Vizual: Animation PC loading lent]
+[Text: SEMNUL #1]
+
+FRAME 2 (8-13 sec):
+"Internetul merge mai rău decât metroul la ora de vârf?"
+[Vizual: Speed test cu rezultate slabe]
+[Text: SEMNUL #2]
+
+FRAME 3 (13-18 sec):
+"Angajații îți cer parola de WiFi a 5-a oară săptămâna asta?"
+[Vizual: Phone cu password prompt]
+[Text: SEMNUL #3]
+
+FRAME 4 (18-23 sec):
+"Nu ai backup și ți-e frică să te gândești la asta?"
+[Vizual: Animation fișiere disparând]
+[Text: SEMNUL #4]
+
+FRAME 5 (23-28 sec):
+"Nu știi dacă datele companiei sunt protejate de hackeri?"
+[Vizual: Animation hacker silhouette]
+[Text: SEMNUL #5]
+
+CTA (28-35 sec):
+"ESDUM IT CONSULTING - din Ploiești, pentru Prahova"
+"Administrare servere, rețele Cisco, securitate FortiGate"
+[Contact: esdum.ro]
+[Text: FOLLOW pentru mai multe tips IT]
+
+HASHTAGS:
+#ITtips #CyberSec #Ploiesti #Prahova #Romania #ITsupport #SecuritateIT #AdminServere #RețeleCisco #FortiGate #Antreprenoriat #AfaceriRomania #Tehnologie #ITconsulting
+
+POSTING SCHEDULE: Luni, ora 18:00
+
+================================================================================
+VIDEO 2: "De ce AI LOCAL e viitorul pentru firmele din România"
+================================================================================
+
+HOOK (0-3 sec):
+[Text: "ChatGPT îți trimite datele în SUA? 🌍"]
+[Sunet: Suspense/dramatic sting]
+[Vizual: Harta cu săgeată România -> SUA]
+
+FRAME 1 (3-8 sec):
+"Știai că când folosești ChatGPT, datele companiei tale pot ajunge în afara UE?"
+[Text: GDPR PROBLEM]
+[Vizual: Warning signs]
+
+FRAME 2 (8-15 sec):
+"Soluția? AI LOCAL - rulează pe serverele tale"
+[Text: SOLUȚIA]
+[Vizual: Server local animation]
+"Datele rămân în companie. 100% GDPR compliant."
+
+FRAME 3 (15-22 sec):
+"Ce poate face AI-ul local pentru tine:"
+• Procesare documente automat
+• Răspunsuri clienți instant
+• Analiză date interne
+• Fără abonament lunar la OpenAI
+
+FRAME 4 (22-28 sec):
+"Cost? Se amortizează în 6-12 luni vs abonamente cloud"
+[Vizual: Grafic costuri descending]
+
+CTA (28-35 sec):
+"ESDUM IT CONSULTING - Implementare AI Local în Ploiești & Prahova"
+"Consultație gratuită pentru evaluare AI readiness"
+[Contact: esdum.ro]
+
+HASHTAGS:
+#AIlocal #LLM #GDPR #InteligențăArtificială #Ploiesti #Prahova #Romania #Tehnologie #AIromania #Automatizare #BusinessInteligent #ITinovatie #FutureTech #DigitalTransformation
+
+POSTING SCHEDULE: Miercuri, ora 18:00
+
+================================================================================
+VIDEO 3: "Test de securitate în 30 de secunde - Site-ul tău e safe?"
+================================================================================
+
+HOOK (0-3 sec):
+[Text: "Testează-ți site-ul în 30 secunde 🔒"]
+[Sunet: Tech beep]
+[Vizual: Interface animation]
+
+FRAME 1 (3-8 sec):
+"Introdu domeniul tău..."
+[Vizual: Typing animation - "ex: esdum.ro"]
+
+FRAME 2 (8-15 sec):
+"Tool-ul nostru verifică:"
+• DNS Security
+• SSL Certificate
+• Email spoofing
+• Headers de securitate
+• Subdomain vulnerabilities
+[Vizual: Checklist animation]
+
+FRAME 3 (15-22 sec):
+"Primești scor și raport complet"
+[Vizual: Score circle animation - 85/100]
+"Vezi exact ce trebuie să fixezi"
+
+FRAME 4 (22-28 sec):
+"GRATUIT pe esdum.ro"
+[Vizual: Website screenshot]
+"Fără înregistrare, fără spam"
+
+CTA (28-35 sec):
+"Link în bio 🔗"
+"Follow pentru mai multe tools gratuite"
+"ESDUM IT CONSULTING - Securitate pentru afaceri românești"
+
+HASHTAGS:
+#CyberSec #SecuritateIT #AuditGratuit #WebsiteSecurity #Hacker #Ploiesti #Romania #ITtools #Pentesting #SSL #DNS #EmailSecurity #WebSecurity #InfoSec
+
+POSTING SCHEDULE: Vineri, ora 18:00
+
+================================================================================
+VIDEO 4: "O zi din viața unui IT Consultant în Ploiești"
+================================================================================
+
+HOOK (0-3 sec):
+[Text: "POV: Ești IT Consultant în Ploiești 🏭"]
+[Sunet: Morning routine sounds]
+[Vizual: Sunrise over Ploiești]
+
+FRAME 1 (3-10 sec):
+"08:00 - Cafea și monitorizare servere"
+[Vizual: Dashboard cu grafice]
+"Toate verzi? Bun, putem respira."
+
+FRAME 2 (10-17 sec):
+"10:00 - Client nou: migrare servere"
+[Vizual: Server rack, cabluri]
+"Windows Server 2012 -> 2022"
+
+FRAME 3 (17-24 sec):
+"14:00 - Troubleshooting rețea Cisco"
+[Vizual: Terminal cu comenzi]
+"show running-config... găsit problema!"
+
+FRAME 4 (24-31 sec):
+"16:00 - Configurare FortiGate"
+[Vizual: Firewall interface]
+"VPN, IPS, filtrare conținut - toate setate"
+
+FRAME 5 (31-38 sec):
+"18:00 - Documentație și training client"
+[Vizual: Screenshot prezentare]
+"Knowledge transfer - clientul devine independent"
+
+CTA (38-45 sec):
+"ESDUM IT CONSULTING - Partenerul tău IT în Ploiești"
+"Servere, Rețele, Securitate, AI"
+[Contact: esdum.ro]
+
+HASHTAGS:
+#DayInTheLife #ITconsultant #Ploiesti #Prahova #Romania #BehindTheScenes #ITlife #ServerAdmin #Cisco #FortiGate #TechLife #WorkVlog #AdminServere #Rețelistică
+
+POSTING SCHEDULE: Duminică, ora 14:00
+
+================================================================================
+CROSS-PLATFORM STRATEGY
+================================================================================
+
+TIKTOK:
+- Posting: 4x pe săptămână (Luni, Miercuri, Vineri, Duminică)
+- Ora optimă: 18:00-20:00
+- Durată: 30-45 secunde
+- Format: 9:16 vertical
+- Stil: Edgy, tech, rapid cuts
+
+INSTAGRAM REELS:
+- Re-upload TikTok videos
+- Adaugă caption mai detaliat
+- Folosește Story pentru behind-the-scenes
+- Tag locație: Ploiești
+
+YOUTUBE SHORTS:
+- Re-upload TikTok videos
+- Title: mai descriptiv pentru SEO
+- Tags: completează cu keywords IT
+
+LINKEDIN:
+- Adaptare pentru public profesional
+- Video 2 (AI Local) și Video 4 (Day in Life) funcționează cel mai bine
+- Adaugă context business
+- Tag companii locale
+
+FACEBOOK:
+- Re-share pe pagina de business
+- Target: antreprenori Ploiești/Prahova
+- Folosește Groups locale
+
+================================================================================
+PRODUCTION NOTES
+================================================================================
+
+EQUIPMENT NEEDED:
+- Smartphone cu cameră bună (iPhone 13+ sau similar)
+- Ring light pentru iluminare consistentă
+- Tripod stabil
+- Microfon lapel (opțional dar recomandat)
+
+EDITING:
+- CapCut (free, ușor de folosit)
+- Template: Dark tech theme
+- Font: Inter sau Montserrat Bold
+- Transitions: Quick cuts, zoom-in pe puncte cheie
+- Sound effects: Subtle tech beeps, notifications
+
+BRANDING:
+- Logo ESDUM în colțul dreapta-jos (subtire, opacity 70%)
+- Culori: Indigo (#6366f1), Cyan (#06b6d4), Dark (#0f172a)
+- Outro consistent: "ESDUM IT CONSULTING - din Ploiești, pentru Prahova"
+
+ENGAGEMENT TACTICS:
+- Întrebare în caption: "Tu câte semne ai bifat? 👇"
+- Răspunde la PRIMELE 10 comentarii în primele 30 minute
+- Pin un comentariu cu link către tool-uri
+- Duet cu videouri relevante din nișă
+
+================================================================================
+MUSIC SUGGESTIONS
+================================================================================
+
+TikTok Audio Library (Copyright-free):
+1. "Tech House" - pentru video-uri rapide
+2. "Corporate Upbeat" - pentru video-uri profesionale
+3. "Suspense Cinematic" - pentru hook-uri
+4. "Lo-fi Beats" - pentru video-uri "Day in Life"
+
+Trending Sounds (verifică săptămânal):
+- Folosește sounds trending din Romania
+- Adaptă la context IT/tech
+
+================================================================================
+POSTING SCHEDULE - LUNA 1
+================================================================================
+
+Săptămâna 1:
+- Luni: Video 1 (5 semne)
+- Miercuri: Video 2 (AI Local)
+- Vineri: Video 3 (Security Test)
+- Duminică: Video 4 (Day in Life)
+
+Săptămâna 2-4:
+- Repetă pattern-ul cu variații
+- Adaugă reactive content (răspunde la comentarii)
+- Trend-jacking pe subiecte IT virale
+
+Măsurare:
+- Views, Likes, Shares, Comments
+- Click-through rate pe link-uri
+- Conversions (contacte prin site)
+
+================================================================================
+END OF SCRIPT
+================================================================================

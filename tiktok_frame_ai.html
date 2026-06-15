@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1080px;
+  height: 1920px;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+/* Grid background */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+/* Glow orb */
+.glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%);
+  top: -100px;
+  right: -200px;
+  pointer-events: none;
+}
+.glow2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%);
+  bottom: -100px;
+  left: -150px;
+  pointer-events: none;
+}
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px;
+}
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: white;
+  font-size: 28px;
+  font-weight: 800;
+  padding: 10px 32px;
+  border-radius: 50px;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #6366f1 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle {
+  font-size: 44px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 80px;
+}
+.card {
+  background: rgba(30, 41, 59, 0.8);
+  border: 2px solid #334155;
+  border-radius: 32px;
+  padding: 50px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(10px);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+.card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+.card-title {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: left;
+}
+.card-desc {
+  font-size: 32px;
+  color: #94a3b8;
+  text-align: left;
+  line-height: 1.5;
+}
+.cta-box {
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(6,182,212,0.2));
+  border: 2px solid rgba(99,102,241,0.5);
+  border-radius: 32px;
+  padding: 50px;
+  margin-top: 60px;
+}
+.cta-text {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.url {
+  font-size: 36px;
+  color: #06b6d4;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+.footer {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+}
+.footer-logo {
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer-loc {
+  font-size: 28px;
+  color: #64748b;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  
+  <div class="content">
+    <div class="badge">🔥 Nou</div>
+    
+    <h1>AI Implementation<br>& LLM Local</h1>
+    <p class="subtitle">Pentru firme din Ploiești & Prahova</p>
+    
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">Chatboți Inteligenți</div>
+      </div>
+      <p class="card-desc">Suport clienți automat, integrare WhatsApp & site. Răspunsuri instant, 24/7.</p>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">LLM Local - GDPR Safe</div>
+      </div>
+      <p class="card-desc">Modele AI care rulează pe serverele tale. Datele NU părăsesc compania. 100% compliant UE.</p>
+    </div>
+    
+    <div class="cta-box">
+      <div class="cta-text">🚀 Demo Live Acum</div>
+      <div class="url">previous-genres-consulting-outer.trycloudflare.com</div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <div class="footer-logo">ESDUM IT CONSULTING</div>
+    <div class="footer-loc">📍 Ploiești, Prahova, România</div>
+  </div>
+</body>
+</html>
